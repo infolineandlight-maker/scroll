@@ -1,8 +1,8 @@
 {
-  "name": "webgi-camera-landing",
+  "name": "threejs-camera-landing",
   "version": "2.0.0",
   "private": true,
-  "description": "Next.js 16 WebGi Camera Landing Page",
+  "description": "Next.js 16 Three.js Camera Landing Page",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -10,18 +10,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^9.117.0",
+    "@react-three/fiber": "^8.17.0",
+    "@react-three/postprocessing": "^2.16.0",
     "gsap": "^3.12.5",
     "next": "^16.0.0",
+    "postprocessing": "^6.36.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-0.4.5.tgz"
+    "three": "^0.170.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "@types/three": "^0.139.0",
-    "@types/webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-types-0.4.5.tgz",
+    "@types/three": "^0.170.0",
     "@tailwindcss/postcss": "^4.0.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.0"

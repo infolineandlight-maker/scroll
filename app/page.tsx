@@ -8,8 +8,8 @@ import { AutofocusSection } from "@/components/sections/autofocus-section";
 import { ExploreSection } from "@/components/sections/explore-section";
 import { ExitControls } from "@/components/exit-controls";
 
-// WebGi viewer must be client-side only
-const WebGiViewer = dynamic(() => import("@/components/webgi-viewer"), {
+// Three.js viewer must be client-side only
+const ThreeViewer = dynamic(() => import("@/components/three-viewer"), {
   ssr: false,
 });
 
@@ -26,7 +26,7 @@ export default function Home() {
       <ExploreSection />
 
       <ExitControls />
-      <WebGiViewer />
+      <ThreeViewer />
     </>
   );
 }
