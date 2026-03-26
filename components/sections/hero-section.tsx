@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export function HeroSection() {
   return (
     <section className="section cam-view-1">
@@ -56,8 +58,13 @@ export function HeroSection() {
             features from the growing EOS R Series to a sleek, lightweight
             design.
           </p>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/images/performance_video.jpg" alt="Performance" />
+          <Image 
+            src="/assets/images/performance_video.jpg" 
+            alt="Performance"
+            width={194}
+            height={110}
+            style={{ width: "auto", height: "auto" }}
+          />
           <svg
             width="194"
             height="26"

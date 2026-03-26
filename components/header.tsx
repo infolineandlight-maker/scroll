@@ -13,6 +13,7 @@ export function Header() {
           width={140}
           height={56}
           priority
+          style={{ width: "auto", height: "auto" }}
         />
         <ul className="header--menu">
           <li>Features</li>

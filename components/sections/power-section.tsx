@@ -38,6 +38,7 @@ export function PowerSection() {
             alt="Power Features"
             width={194}
             height={316}
+            style={{ width: "auto", height: "auto" }}
           />
         </div>
       </div>

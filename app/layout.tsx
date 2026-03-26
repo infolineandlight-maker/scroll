@@ -9,6 +9,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_URL || "http://localhost:3000"
+  ),
   title: "WEBGi Camera Landing Page Demo",
   description:
     "Three.js demo landing page for product visualization using WEBGi",
