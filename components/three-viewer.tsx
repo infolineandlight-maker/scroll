@@ -745,11 +745,18 @@ export default function ThreeViewer() {
         id="webgi-canvas"
         gl={{
           antialias: true,
-          toneMapping: THREE.ACESFilmicToneMapping,
-          toneMappingExposure: 1,
+          alpha: true,
+          powerPreference: "high-performance",
+          stencil: false,
+          depth: true,
+        }}
+        onCreated={({ gl }) => {
+          gl.toneMapping = THREE.ACESFilmicToneMapping;
+          gl.toneMappingExposure = 1;
         }}
         dpr={dpr}
         shadows
+        flat={false}
       >
         <Scene
           cameraState={cameraState}
