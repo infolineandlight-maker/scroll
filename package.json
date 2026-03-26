@@ -22,6 +22,7 @@
     "@types/react-dom": "^19.0.0",
     "@types/three": "^0.139.0",
     "@types/webgi": "https://storage.googleapis.com/dist.pixotronics.com/webgi/runtime/bundle-types-0.4.5.tgz",
+    "@tailwindcss/postcss": "^4.0.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.0"
   }
