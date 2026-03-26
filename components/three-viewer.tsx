@@ -22,6 +22,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 // Lens object names for explosion effect
+// NOTE: These names must match the mesh objects in the GLB model
+// Inspect model structure and update if using a different model
 const LENS_OBJECT_NAMES = [
   "Circle002",
   "+Sphere001001",
@@ -110,6 +112,18 @@ function CameraModel({
 
   useEffect(() => {
     if (!hasInitialized.current && scene) {
+      // DEBUG: Log all mesh objects in the model
+      console.log("[v0] Model structure - all mesh objects:");
+      const allMeshes: string[] = [];
+      scene.traverse((child) => {
+        if (child.isMesh) {
+          console.log(`[v0] Mesh: "${child.name}" (position: x=${child.position.x.toFixed(2)}, y=${child.position.y.toFixed(2)}, z=${child.position.z.toFixed(2)})`);
+          allMeshes.push(child.name);
+        }
+      });
+      console.log("[v0] Total meshes:", allMeshes.length);
+      console.log("[v0] Mesh names array:", JSON.stringify(allMeshes));
+      
       // Initialize lens objects
       const lensObjects: LensObjectData[] = [];
       
@@ -125,6 +139,7 @@ function CameraModel({
         }
       });
       
+      console.log("[v0] Lens objects found:", lensObjects.length);
       lensObjectsRef.current = lensObjects;
       hasInitialized.current = true;
       onLoad();
