@@ -725,6 +725,20 @@ export default function ThreeViewer() {
     };
   }, []);
 
+  // Prevent SSR render - Canvas must only render on client
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div id="webgi-canvas-container" ref={containerRef} />;
+  }
+
+  const dpr = typeof window !== "undefined" 
+    ? Math.min(window.devicePixelRatio, isMobile ? 1 : 1.5) 
+    : 1;
+
   return (
     <div id="webgi-canvas-container" ref={containerRef}>
       <Canvas
@@ -734,7 +748,7 @@ export default function ThreeViewer() {
           toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 1,
         }}
-        dpr={Math.min(window.devicePixelRatio, isMobile ? 1 : 1.5)}
+        dpr={dpr}
         shadows
       >
         <Scene

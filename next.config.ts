@@ -4,9 +4,20 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // WebGi requires client-side only rendering
+  // Transpile Three.js packages for proper module resolution
+  transpilePackages: [
+    "three",
+    "@react-three/fiber",
+    "@react-three/drei",
+    "@react-three/postprocessing",
+    "postprocessing",
+  ],
   webpack: (config) => {
-    config.externals = config.externals || [];
+    // Ensure single React instance
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+    };
     return config;
   },
 };
